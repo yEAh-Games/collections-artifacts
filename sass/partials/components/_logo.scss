@@ -1,48 +1,51 @@
-// Logo SVG styling
+// Logo SVG styling you most probably will replace all of the below.
 
 .icon{
-    fill:$blue;
-    fill-rule:nonzero;
-    stroke:$lightblue;
-    stroke-width:0.05;
-    stroke-miterlimit:4;
-    stroke-opacity:0.94117647;
-    stroke-dasharray:none;
-    transition: .3s all ease;
+    transition: .3s all ease; 
+    fill:$dark-primary-color;    
+    .lines{
+        stroke: white;
+        stroke-width:3;
+        stroke-linecap:butt;
+        stroke-linejoin:miter;
+        stroke-miterlimit:4;
+    }
+    .rectangle{
+        // fill: $dark-primary-color;
+    }
 }
 
-.twister{
-    font-size:25px;
-    font-weight: $light;
+.gridster{
+    font-size:104.73602295px;
+    font-weight: bold;
     line-height:125%;
-    fill:$coal;
-    font-family: $roboto;
+    fill:$primary-text;
+    font-family: $main-font;
     text-transform: uppercase;
     transition: .3s all ease;
 }
 
 .slogan{
-    font-size:7px;
-    font-weight:200;
+    font-size:30px;
+    font-weight:300;
     line-height:125%;
-    fill:$magenta;
-    font-family: $roboto;
+    fill:$accent-color;
+    font-family: $main-font;
     transition: .3s all ease;
 }
 
 a:hover{
     svg{
         .icon{
-            fill:$magenta;
-            stroke:$coal;
+            fill:$accent-color;
         }
 
         .twister{
-            fill:$blue;
+            fill:$dark-primary-color;
         }
 
         .slogan{
-            fill:$lightblue;
+            fill:$light-primary-color;
         }
     }
 }

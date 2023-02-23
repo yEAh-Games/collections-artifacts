@@ -1,7 +1,18 @@
+@import "toolbox/all";
+
+@import "base/settings";
+@import "base/typography";
+
 @import "assets/font-awesome";
-@import "reset";
-@import "modules/all";
-@import "partials/base";
+
+// add your palette here
+// @import "toolbox/palettes/brown";
+// @import "toolbox/palettes/green";
+// @import "toolbox/palettes/teal";
+
+@import "base/reset";
+@import "base/base-style";
+
 @import "partials/general";
 @import "partials/layout/header";
 @import "partials/layout/index";
@@ -15,4 +26,5 @@
 @import "partials/components/widget";
 @import "partials/components/syntax";
 @import "partials/components/lightbox";
+
 @import "temporary";

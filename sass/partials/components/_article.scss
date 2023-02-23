@@ -1,11 +1,12 @@
 article{
+    @include shadow(1);
+    border-radius: 2px;
     box-sizing: border-box;
-    background: $box_bg;
+    background: $almost-white;
     margin-bottom: 20px;
-    border: $box_line;
     position: relative;
 
-    .content_container &{
+    .content-container &{
         padding: 20px;
 
         p{
@@ -16,7 +17,7 @@ article{
     .index & h1,
     .index & p,
     .index & span{
-        padding: 10px;
+        padding: 0 20px;
     }
 
     img{
@@ -31,8 +32,6 @@ article{
 
     .category,
     .tags {
-        text-transform: uppercase;
-
         .index &{
             font-size: .7em;
             opacity: .6;
@@ -43,15 +42,6 @@ article{
         .index &{
             font-size: .7em;
             opacity: .6;
-            position: absolute;
-            bottom: 10px;
-            left: 5px;
-        }
-    }
-
-    .post_content{
-        .index &{
-            padding-bottom: 50px;
         }
     }
 
@@ -72,19 +62,12 @@ article{
 
 .wrapper{
     width: 100%;
-    border: $box_line;
     height: auto;
     box-sizing: border-box;
-    background: $box_bg;
 }
 
 .short{
     width: 100%;
-    border-bottom: $box_line;
-
-    &:hover{
-       background: darken($box_bg, 3%);
-    }
 
     a{
         display: block;
