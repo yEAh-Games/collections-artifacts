@@ -10,19 +10,16 @@
 #   email: someone@something.com //--> optional
 
 -
-  id: yeahgames
-  name: yEAh Games
-  avatar: /media/authors/yeahgames.png
-  bio: Official yEAh Games Artifacts publications.
-  twitter: https://twitter.com/yeahgames_
-  instagram: http://instagram.com/_yeahgames
-  email: admin@yeahgames.net
+ id: someone
+  name: Some Person
+  avatar: /profile-pic.jpg
+  bio: this is some more information about the author.
+  facebook: https://www.facebook.com/someone
+  twitter: https://twitter.com/someone
+  instagram: http://instagram.com/someone
+  email: someone@something.com
 -
-  id: tallinn
-  name: Tallinn
-  avatar: /media/authors/tallinn.png
-  bio: Lead developer, writer, archivist and administrator for yEAh Games.
-  twitter: https://twitter.com/reallygondola
-  instagram: http://instagram.com/tallinn.q
-  email: tallinn@yeahgames.net
+ id: person
+  avatar: /profile-pic.jpg
+  bio: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, quidem.
 -
