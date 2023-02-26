@@ -10,14 +10,14 @@
 #   email: someone@something.com //--> optional
 
 -
-  id: someone
-  name: Some Person
-  avatar: /profile-pic.jpg
-  bio: this is some more information about the author.
-  facebook: https://www.facebook.com/someone
-  twitter: https://twitter.com/someone
-  instagram: http://instagram.com/someone
-  email: someone@something.com
+  id: yeahgames
+  name: yEAh Games
+  avatar: /media/authors/yeahgames.png
+  bio: Official yEAh Games Artifacts publications.
+  facebook: https://www.facebook.com/yeahgames
+  twitter: https://twitter.com/yeahgames_
+  instagram: http://instagram.com/_yeahgamees
+  email: admin@yeahgames.net
 -
   id: person
   avatar: /profile-pic.jpg
