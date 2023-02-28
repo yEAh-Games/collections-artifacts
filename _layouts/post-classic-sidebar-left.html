@@ -19,9 +19,9 @@
                             {{ page.title }}
                         </h3>
                         <div class="meta">
-                            {% include author.html%} &bull;
+                            {% include author.html%}
                             <span class="date">
-                                Archived on {{ page.date | date: '%B %d, %Y' }}
+                                on <b>{{ page.date | date: '%B %d, %Y' }}</b>
                             </span>
                         </div>
                         {% if page.type == "standard" %}
