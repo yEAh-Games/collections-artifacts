@@ -9,6 +9,7 @@
   background-position: center;
   /* Make the background image cover the area of the <div>, and clip the excess */
   background-size: cover;}
+.serial{float:right}
 </style>
 <article>
     {% if post.homedisplay == "iframe" %}
@@ -56,7 +57,8 @@
                 </a>
         {% endif %}
     {% endif %}
-    <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
+    <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>     <span class="serial">{{post.serial}}</span>
+
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
         <h1 class="post-title-smaller">{{ post.title }}</h1>
     </a>
