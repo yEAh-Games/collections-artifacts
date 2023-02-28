@@ -35,10 +35,10 @@
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
                     {% if post.featimg contains '.png'%}
                     {% assign thumb = post.featimg | replace: '.png', '' %}
-                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
+                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.png" alt="{{ thumb }}" class="crop">
                     {% elsif post.featimg contains '.jpg'%}
                     {% assign thumb = post.featimg | replace: '.jpg', '' %}
-                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
+                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.jpg" alt="{{ thumb }}" class="crop">
                     {% endif %}
                 </a>
             {% endif %}
@@ -48,10 +48,10 @@
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
                     {% if post.featimg contains '.png'%}
                     {% assign thumb = post.featimg | replace: '.png', '' %}
-                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
+                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.png" alt="{{ thumb }}" class="crop">
                     {% elsif post.featimg contains '.jpg'%}
                     {% assign thumb = post.featimg | replace: '.jpg', '' %}
-                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
+                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.jpg" alt="{{ thumb }}" class="crop">
                     {% endif %}
                 </a>
         {% endif %}
