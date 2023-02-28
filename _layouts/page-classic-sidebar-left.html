@@ -14,9 +14,6 @@
             <div class="content">
                 <div class="content-container">
                     <article>
-                        {% if page.featimg %}
-                            <img class="featimg" src="{{ site.media_folder | prepend: site.baseurl | replace: '//', '/'}}/{{ page.featimg }}" alt="{{ page.featimg }}">
-                        {% endif %}
 
                         <h1 class="page-title">
                             {{ page.title }}
@@ -24,6 +21,22 @@
                         <div class="post-content">
                             {{ content }}
                         </div>
+                        <script src="https://giscus.app/client.js"
+        data-repo="yeah-games/library"
+        data-repo-id="R_kgDOIrwbaA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOIrwbaM4CTSVt"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
                     </article>
                 </div>
                 {% include classic-sidebar.html %}
