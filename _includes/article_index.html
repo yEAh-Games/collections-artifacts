@@ -35,10 +35,10 @@
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
                     {% if post.featimg contains '.png'%}
                     {% assign thumb = post.featimg | replace: '.png', '' %}
-                    <img src="{{ site.media_folder | prepend: site.baseurl | replace: '//', '/'}}/crops/450x253/{{ thumb | append: '-450x253.png' }}" alt="{{ thumb }}" class="crop">
+                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
                     {% elsif post.featimg contains '.jpg'%}
                     {% assign thumb = post.featimg | replace: '.jpg', '' %}
-                        <img src="{{ site.media_folder | prepend: site.baseurl | replace: '//', '/'}}/crops/450x253/{{ thumb | append: '-450x253.jpg' }}" alt="{{ thumb }}" class="crop">
+                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
                     {% endif %}
                 </a>
             {% endif %}
@@ -48,10 +48,10 @@
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
                     {% if post.featimg contains '.png'%}
                     {% assign thumb = post.featimg | replace: '.png', '' %}
-                    <img src="{{ site.media_folder | prepend: site.baseurl | replace: '//', '/'}}/crops/450x253/{{ thumb | append: '-450x253.png' }}" alt="{{ thumb }}" class="crop">
+                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
                     {% elsif post.featimg contains '.jpg'%}
                     {% assign thumb = post.featimg | replace: '.jpg', '' %}
-                        <img src="{{ site.media_folder | prepend: site.baseurl | replace: '//', '/'}}/crops/450x253/{{ thumb | append: '-450x253.jpg' }}" alt="{{ thumb }}" class="crop">
+                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}" alt="{{ thumb }}" class="crop">
                     {% endif %}
                 </a>
         {% endif %}
