@@ -10,6 +10,7 @@
   /* Make the background image cover the area of the <div>, and clip the excess */
   background-size: cover;}
 .serial{float:right;opacity:0.5;font-size:0.8em;}
+.articleindexbreak{display: block; content: ""; margin-top: 4;}
 </style>
 <article>
     {% if post.homedisplay == "iframe" %}
@@ -24,7 +25,7 @@
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/{{ post.yt-video-id }}?feature=player_detailpage" allowfullscreen></iframe>
                 </div>
-                <br>
+                <br class="articleindexbreak">
             {% endif %}
         {% elsif post.type == "audio" %}
             {% if post.audio-embed %}
