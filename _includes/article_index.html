@@ -22,8 +22,9 @@
         {% elsif post.type == "youtube" %}
             {% if post.yt-video-id %}
                 <div class="video-container">
-                    <iframe height="253px" width="450px" src="https://www.youtube.com/embed/{{ post.yt-video-id }}?feature=player_detailpage" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/{{ post.yt-video-id }}?feature=player_detailpage" allowfullscreen></iframe>
                 </div>
+                <br>
             {% endif %}
         {% elsif post.type == "audio" %}
             {% if post.audio-embed %}
@@ -62,7 +63,7 @@
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
         <h1 class="post-title-smaller">{{ post.title }}</h1>
     </a>
-    <p class="post-content">{{ post.content | strip_html | truncate: 100}}</p>
+    <p class="post-content">{{ post.content | strip_html | truncate: 128}}</p>
     <p class="actions">
         <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">Read More</a>
     </p>
