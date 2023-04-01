@@ -27,62 +27,6 @@
                         {% if page.type == "standard" %}
                         {% endif %}
                         <div class="post-content">
-                            <p>This is an archive page for a <strong>{% if page.serial contains "p" or "P" %}physical{% endif %}{% if page.serial contains "d" or "D" %}digital{% endif %}</strong> artifact: <em><code>{{page.title}}</code></em>.</p>
-<table>
-    <tr>
-        <td><b>TITLE</b>:</td>
-        <td>{{page.title}}</td>
-    </tr>
-    <tr>
-        <td><b>DESCRIPTION:</b></td>
-        <td>{% if page.description %}"{{page.description}}"{% unless page.description == empty %}No description provided.{% endunless %}{% endif %}</td>
-    </tr>
-    <tr>
-        <td><b>SERIAL ID:</b></td>
-        <td>{{page.serial}}</td>
-    </tr>
-    <tr>
-        <td><b>ITEM SERIALS:</b></td>
-        <td>{% if item in page.items contains "yt" or "YT" %}<a href="https://www.youtube.com/watch/{{item | remove: 'YT' | remove: '-'}}">E-YT:/{{item | remove: 'YT'}}</a>;{% endif %}{% if item in page.items contains "png" or "PNG" %}<a href="/archive/{% if page.serial contains "d" or "D" %}d{% endif%}{% if page.serial contains "p" or "P" %}p{% endif%}/{{page.serial}}/png/{{item | replace: page.serial, '' | remove: '-' | remove: 'PNG'}}.png">/PNG/{{page.serial}}-{{item | replace: page.serial, '' | remove: '-' | remove: 'PNG'}};{% endif %}</a></td>
-    </tr>
-    <tr>
-        <td><b>DATE:</b></td>
-        <td>{{page.date}}</td>
-    </tr>
-    <tr>
-        <td><b>DATE ARCHIVED:</b></td>
-        <td>{{page.adate}}</td>
-    </tr>
-    <tr>
-        <td><b>TYPE:</b></td>
-        <td>{% if page.serial contains "d" or "D" %}Digital [D]{% endif %}{% if page.serial contains "p" or "P" %}Physical [P]{% endif %}</td>
-    </tr>
-    <tr>
-        <td><b>VIEWABLE FORMAT(S):</b></td>
-        <td>1 external video (YT)</td>
-    </tr>
-    <tr>
-        <td><b>STORED FORMAT(S):</b></td>
-        <td>N/A</td>
-    </tr>
-    <tr>
-        <td><b>SUB-ARTIFACTS:</b></td>
-        <td>1 image (PNG)</td>
-    </tr>
-    <tr>
-        <td><b>ARCHIVE STATUS:</b></td>
-        <td>1 item is not hosted in the archive (<code>EXTLOC-LINK</code>)</td>
-    </tr>
-    <tr>
-        <td><b>SUBMITTER:</b></td>
-        <td><a   href="//members.yeahgames.net/@{{page.submitter}}"><img   src="https://cdn.yeahgames.net/img/members/profile/default/@{{page.submitter}}.png"   height="16"   width="16"> @{{page.submitter}}</a></td>
-    </tr>
-    <tr>
-        <td><b>ARCHIVIST:</b></td>
-        <td><a   href="//members.yeahgames.net/@{{page.archivist}}"><img   src="https://cdn.yeahgames.net/img/members/profile/default/@{{page.archivist}}.png"   height="16"   width="16"> @{{page.archivist}}</a></td>
-    </tr>
-</table>
-<hr/>
                             {{ content }}
                         </div>
                         {% if page.category or page.tags %}
