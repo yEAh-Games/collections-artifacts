@@ -64,7 +64,7 @@
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
         <h1 class="post-title-smaller">{{ post.title }}</h1>
     </a>
-    <p class="post-content">{{ post.content | strip_html | truncate: 125}}</p>
+    <p class="post-content">{{ post.description | strip_html | truncate: 125}}{% if post.description == empty %}This is an archive page for a {% if page.serial contains 'D' %}digital{% endif %}{% if page.serial contains 'P' %}physical{% endif %} artifact: "{{page.title | remove: '«' | remove: '»'}}".{% endif %}
     <p class="actions">
         <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">Read More</a>
     </p>
