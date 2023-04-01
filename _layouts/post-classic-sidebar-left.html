@@ -43,7 +43,7 @@
     </tr>
     <tr>
         <td><b>ITEM SERIALS:</b></td>
-        <td>{% for item in page.items %}{% if item contains "yt" or "YT" %}<a href="https://www.youtube.com/watch/{{item | remove 'YT'}}">E-YT:/{{item | remove 'YT'}}</a>{% endif %}{% if item contains "png" or "PNG" %}<a href="/archive/{% if page.serial contains "d" or "D" %}d{% endif%}{% if page.serial contains "p" or "P" %}p{% endif%}/{{page.serial}}/png/{{item | replace page.serial, '' | remove '-' | remove 'PNG'}}.png">/PNG/{{page.serial}}-{{item | replace page.serial, '' | remove '-' | remove 'PNG'}}{% endif %}</a>;{% endfor %}</td>
+        <td>{% for item in page.items %}{% if item contains "yt" or "YT" %}<a href="https://www.youtube.com/watch/{{item | remove: 'YT'}}">E-YT:/{{item | remove: 'YT'}}</a>{% endif %}{% if item contains "png" or "PNG" %}<a href="/archive/{% if page.serial contains "d" or "D" %}d{% endif%}{% if page.serial contains "p" or "P" %}p{% endif%}/{{page.serial}}/png/{{item | replace page.serial, '' | remove '-' | remove 'PNG'}}.png">/PNG/{{page.serial}}-{{item | replace page.serial, '' | remove '-' | remove 'PNG'}}{% endif %}</a>;{% endfor %}</td>
     </tr>
     <tr>
         <td><b>DATE:</b></td>
