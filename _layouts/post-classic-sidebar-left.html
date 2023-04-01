@@ -35,7 +35,7 @@
     </tr>
     <tr>
         <td><b>DESCRIPTION:</b></td>
-        <td>{% if page.title %}No description provided.{% unless page.description %}"{{page.description}}"{% endunless %}{% endif %}</td>
+        <td>{% if page.description %}"{{page.description}}"{% unless page.description == empty %}No description provided.{% endunless %}{% endif %}</td>
     </tr>
     <tr>
         <td><b>SERIAL ID:</b></td>
