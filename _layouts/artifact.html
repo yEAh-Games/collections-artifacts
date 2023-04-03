@@ -16,7 +16,7 @@
                     <article>
 
                         <h3 class="post-title">
-                            «{{ page.title }}»
+                            "{{ page.title }}"
                         </h3>
                         <div class="meta">
                             {% include author.html%}
@@ -26,9 +26,77 @@
                         </div>
                         {% if page.type == "standard" %}
                         {% endif %}
-                        <div class="post-content">
-                            {{ content }}
-                        </div>
+                        <div class="post-content"> <!--start artifact default layout-->
+                            <style>
+                                #expandable-div {
+                                  height: 0;
+                                  overflow: hidden;
+                                  transition: height 0.5s ease;
+                                  background-color: #f2f2f2;
+                                  padding: 10px;
+                                }
+                      </style>
+                     <p>This is an archive page for a <strong>{% if page.serial contains 'D' %}digital{% endif %}{% if page.serial contains 'P' %}physical{% endif %}</strong> artifact: <em><code>{{page.title}}</code></em>.</p>
+                     <table>
+                        <tr>
+                            <td><b>TITLE</b>:</td>
+                            <td>"{{page.title}}"</td>
+                        </tr>
+                        <tr>
+                             <td><b>DESCRIPTION:</b></td>
+                             <td>{% if page.description %}"{{page.description}}"{% endif %}{% if page.description == empty %}No description provided.{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td><b>SERIAL ID:</b></td>
+                            <td>{{page.serial}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>ITEM SERIALS:</b></td>
+                            <td>{% for item in page.items %}<a href="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png'}}{% if item contains "png" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}"> {{page.serial}}–{{item}}</a>;{% endfor %}</td>
+                        </tr>
+                        <tr>
+                            <td><b>DATE:</b></td>
+                            <td>{{page.date}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>DATE ARCHIVED:</b></td>
+                            <td>{{page.adate}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>TYPE:</b></td>
+                            <td>{% if page.serial contains 'D' %}Digital [D]{% endif %}{% if page.serial contains "P" %}Physical [P]{% endif %}</td>
+                        </tr>
+                       <!-- <tr>
+                            <td><b>ITEMS:</b></td>
+                            <td>1 external video (YT); 1 image (PNG)</td>
+                        </tr>-->
+                        <tr>
+                            <td><b>STORED FORMAT(S):</b></td>
+                            <td>{% if page.serial contains 'D' %}N/A{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td><b>ARCHIVE STATUS:</b></td>
+                            <td>1 item is not hosted in the archive (<code>EXTLOC-LINK</code>)</td>
+                        </tr>
+                            <tr>
+                            <td><b>NOTES:</b></td>
+                            <td>{% if page.notes %}"{{page.notes}}"{% endif %}{% if page.notes == empty %}None provided.{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td><b>SUBMITTER:</b></td>
+                            <td><a   href="//members.yeahgames.net/@{{page.submitter}}"><img   src="https://cdn.yeahgames.net/img/members/profile/default/@{{page.submitter}}.png"   height="16"   width="16"> @{{page.submitter}}</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>ARCHIVIST:</b></td>
+                            <td><a   href="//members.yeahgames.net/@{{page.archivist}}"><img   src="https://cdn.yeahgames.net/img/members/profile/default/@{{page.archivist}}.png"   height="16"   width="16"> @{{page.archivist}}</a></td>
+                        </tr>
+                    </table>
+                    <h4>Items:</h4>
+                    {% for item in page.items %}
+                    <h6>{% if item contains "png" %}Image{% endif %}{% if item contains "yt" %}YouTube video{% endif %} {{item | remove: '-' | remove: 'yt' | remove: 'png'}}</h6>
+                    {% if item contains "png" %}<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png'}}{% if item contains "png" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}">{% endif %}
+                    {% if item contains "yt" %}<iframe width="560px" height="475px" src="https://www.youtube-nocookie.com/embed/{{page.yt-video-id}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}
+                    {% endfor %}                        </div><!--end artifact default layout--><br><br>{{content}}
                         {% if page.category or page.tags %}
                         <div class="catsandtags">
                             {% if page.category %}
