@@ -36,14 +36,17 @@
         {% else %}
             {% if post.featimg %}
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
-                    {% if post.featimg contains '.png'%}
-                    {% assign thumb = post.featimg | replace: '.png', '' %}
-                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.png" alt="{{ thumb }}" class="crop">
-                    {% elsif post.featimg contains '.jpg'%}
-                    {% assign thumb = post.featimg | replace: '.jpg', '' %}
-                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.jpg" alt="{{ thumb }}" class="crop">
-                    {% endif %}
+
+                    <img src="{{post.featimg}}" alt="{{ thumb }}" class="crop">
+              
                 </a>
+
+                {% else %}
+                {% assign imgchooser = page.items | where: "contains", "png" | where: "contains", "jpg" | first %}
+
+{% if imgchooser %}
+<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png'}}{% if item contains "png" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}">
+{% endif %}
             {% endif %}
         {% endif %}
     {% else %}

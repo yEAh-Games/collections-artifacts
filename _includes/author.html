@@ -6,16 +6,6 @@
   {% assign author = site.author %}
 {% endif %}
 {% if author %}
-    <span class="author">Archived by
-        {% assign the_author = site.data.authors | where: 'id', author %}
-        {% for author in the_author %}
-            <a href="{{ site.author_dir | prepend: site.baseurl | replace: '//', '/' }}/{{ author.id }}">
-                {% if author.name %}
-                    {{ author.name }}
-                {% else %}
-                    {{ author.id }}
-                {% endif %}
-            </a>
-        {% endfor %}
+    <span class="author">Archived by {% if page.archivist %}<a href="https://members.yeahgames.net/@{{page.archivist}}"><img   src="https://cdn.yeahgames.net/img/members/profile/default/@{{page.archivist}}.png"   height="16"   width="16"> @{{page.archivist}}</a>{% else %}The Archive Team{% endif %}
     </span>
 {% endif %}
