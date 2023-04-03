@@ -44,7 +44,15 @@
                         </tr>
                         <tr>
                              <td><b>DESCRIPTION:</b></td>
-                             <td>{% if page.description %}"{{page.description}}"{% endif %}{% if page.description == empty %}No description provided.{% endif %}</td>
+                             <td>{% if page.description %}
+                                {% if page.description.size > 0 %}
+                                  {{ page.description }}
+                                {% else %}
+                                  No description provided
+                                {% endif %}
+                              {% else %}
+                                No description provided
+                              {% endif %}</td>
                         </tr>
                         <tr>
                             <td><b>SERIAL ID:</b></td>
@@ -76,11 +84,27 @@
                         </tr>
                         <tr>
                             <td><b>ARCHIVE STATUS:</b></td>
-                            <td>1 item is not hosted in the archive (<code>EXTLOC-LINK</code>)</td>
+                            <td>{% if page.status %}
+                                {% if page.status.size > 0 %}
+                                  {% if page.status == 'extytlink'}One or more items in this artifact are externally-hosted YouTube videos <code>[extytlink]</code>.{% endif %}
+                                {% else %}
+                                  Missing or invalid status.
+                                {% endif %}
+                              {% else %}
+                                Missing or invalid status.
+                              {% endif %}</td>
                         </tr>
                             <tr>
                             <td><b>NOTES:</b></td>
-                            <td>{% if page.notes %}"{{page.notes}}"{% endif %}{% if page.notes == empty %}None provided.{% endif %}</td>
+                            <td>{% if page.notes %}
+                                {% if page.notes.size > 0 %}
+                                  {{ page.notes }}
+                                {% else %}
+                                  No notes provided
+                                {% endif %}
+                              {% else %}
+                                No notes provided
+                              {% endif %}</td>
                         </tr>
                         <tr>
                             <td><b>SUBMITTER:</b></td>
