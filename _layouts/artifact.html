@@ -62,7 +62,9 @@
                             <td><b>ITEM SERIALS:</b></td>
                             <td>{% for item in page.items %} {% capture markdown %} 
                                 https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains 'P' %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}
-                                {% endcapture %}<a href="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: 'md' | remove: '-' | remove: '1'}}">{% if item contains "md" %}<a href="{{markdown}}">{% endif %} {{page.serial}}–{{item}}</a>;{% endfor %}</td>
+                                {% endcapture %}{% capture yt %} 
+                                https://youtube-nocookie.com/embed/{{yt-video-id}}
+                                {% endcapture %}<a href="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: 'md' | remove: '-' | remove: '1'}}">{% if item contains "md" %}<a href="{{markdown}}">{% endif %}{% if item contains "yt" %}<a href="{{yt}}">{% endif %}  {{page.serial}}–{{item}}</a>;{% endfor %}</td>
                         </tr>
                         <tr>
                             <td><b>DATE:</b></td>
