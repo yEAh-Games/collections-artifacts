@@ -36,7 +36,7 @@
                                   padding: 10px;
                                 }
                       </style>
-                     <p>This is an archive page for a <strong>{% if page.serial contains 'D' %}digital{% endif %}{% if page.serial contains 'P' %}physical{% endif %}</strong> artifact: <em><code>{{page.title}}</code></em>.</p>
+                     <p>This is an archive page for a <strong>{% if page.serial contains 'D' %}digital{% endif %}{% if page.serial contains 'P' %}physical{% endif %}</strong> artifact: <b><code>{{page.title}}</code></b>.</p>
                      <table>
                         <tr>
                             <td><b>TITLE</b>:</td>
@@ -63,7 +63,7 @@
                             <td>{% for item in page.items %} {% capture markdown %} 
                                 https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains 'P' %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}
                                 {% endcapture %}{% capture yt %} 
-                                https://youtube-nocookie.com/embed/{{yt-video-id}}
+                                https://youtube-nocookie.com/embed/{{page.yt-video-id}}
                                 {% endcapture %}<a href="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: 'md' | remove: '-' | remove: '1'}}">{% if item contains "md" %}<a href="{{markdown}}">{% endif %}{% if item contains "yt" %}<a href="{{yt}}">{% endif %}  {{page.serial}}–{{item}}</a>;{% endfor %}</td>
                         </tr>
                         <tr>
