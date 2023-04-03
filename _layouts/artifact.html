@@ -46,7 +46,7 @@
                              <td><b>DESCRIPTION:</b></td>
                              <td>{% if page.description %}
                                 {% if page.description.size > 0 %}
-                                  {{ page.description }}
+                                  "{{ page.description }}"
                                 {% else %}
                                   No description provided.
                                 {% endif %}
@@ -60,7 +60,7 @@
                         </tr>
                         <tr>
                             <td><b>ITEM SERIALS:</b></td>
-                            <td>{% for item in page.items %}<a href="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}"> {{page.serial}}–{{item}}</a>;{% endfor %}</td>
+                            <td>{% for item in page.items %}<a href="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: 'md' | remove: '-' | remove: '1'}}"> {{page.serial}}–{{item}}</a>;{% endfor %}</td>
                         </tr>
                         <tr>
                             <td><b>DATE:</b></td>
@@ -78,10 +78,10 @@
                             <td><b>ITEMS:</b></td>
                             <td>1 external video (YT); 1 image (PNG)</td>
                         </tr>-->
-                        <tr>
+                        <!--<tr>
                             <td><b>STORED FORMAT(S):</b></td>
                             <td>{% if page.serial contains 'D' %}N/A{% endif %}</td>
-                        </tr>
+                        </tr>-->
                         <tr>
                             <td><b>ARCHIVE STATUS:</b></td>
                             <td>{% if page.status %}
@@ -98,7 +98,7 @@
                             <td><b>NOTES:</b></td>
                             <td>{% if page.notes %}
                                 {% if page.notes.size > 0 %}
-                                  {{ page.notes }}
+                                  "{{ page.notes }}"
                                 {% else %}
                                   No notes provided.
                                 {% endif %}
@@ -121,7 +121,9 @@
                     {% if item contains "png" %}<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png'}}{% if item contains "png" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}">{% endif %}
                     {% if item contains "yt" %}<iframe width="560px" height="475px" src="https://www.youtube-nocookie.com/embed/{{page.yt-video-id}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}
                     {% if item contains "pdf" %}<iframe style="max-height: 700px; height: 500px" src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}" title="Embedded PDF viewer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}
-                    {% if item contains "md" %}<iframe style="max-height: 700px; height: 500px" src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: 'md' | remove: '-' | remove: '1'}}" title="Embedded PDF viewer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}
+                    {% if item contains "md" %}<iframe style="max-height: 700px; height: 500px" src="{{markdown | remove '.'}}" title="Embedded PDF viewer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}
+
+                    {% assign markdown = 'https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: 'md' | remove: '-' | remove: '1'}}' %}
                     {% endfor %}                        </div><!--end artifact default layout--><br><br>{{content}}
                         {% if page.category or page.tags %}
                         <div class="catsandtags">
