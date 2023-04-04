@@ -115,7 +115,7 @@
                             <td><b>KEYWORDS:</b></td>
                             <td>{% if page.keywords %}
                                 {% if page.keywords.size > 0 %}
-                                  {% for item in page.keywords %}<a href="https://artifacts.yeahgames.net/sort/keywords/id/{{item}}">{{item}}</a>;{% endfor %}
+                                  {% for item in page.keywords %}<a href="https://artifacts.yeahgames.net/sort/keywords/id/{{item}}">{{item}}</a>; {% endfor %}
                                 {% else %}
                                   No keywords attached.
                                 {% endif %}
