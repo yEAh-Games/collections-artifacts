@@ -14,10 +14,10 @@ swcache: true
     {% include no-linenos.html content=post.content %}
     {% assign _content = content | strip_html | strip_newlines %}
     "snippet": {{ _content | truncate: 200 | jsonify }},
-    "content": {{ _content | jsonify }}
-    "location": {{post.location | jsonify}}
+    "content": {{ _content | jsonify }},
+    "location": {{post.location | jsonify}},
     "serial": {{post.serial | jsonify}}
-  }
+    
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
