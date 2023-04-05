@@ -42,11 +42,8 @@
                 </a>
 
                 {% else %}
-                {% assign imgchooser = page.items | where: "contains", "png" | where: "contains", "jpg" | first %}
-
-{% if imgchooser %}
-<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png'}}{% if item contains "png" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}">
-{% endif %}
+            
+<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/png/1.png">
             {% endif %}
         {% endif %}
     {% else %}
