@@ -3,59 +3,129 @@
     Every Post type get's their own little settings.
 -->
 <style>
-.post-title-smaller{  font-size: 90% !important;} 
-.crop  {width: 450px;
-  height: 253px;
-  background-position: center;
-  /* Make the background image cover the area of the <div>, and clip the excess */
-  background-size: cover;}
-.serial{float:right;opacity:0.5;font-size:0.8em;}
-.articleindexbreak{display: block; content: ""; margin-top: 12;}
-</style>
-<article style="height:525px;overflow:hidden;">
-    {% if post.homedisplay == "iframe" %}
-        {% if post.type == "vimeo" %}
-            {% if post.vimeo-embed %}
-                <div class="video-container">
-                    {{ post.vimeo-embed }}
-                </div>
+    .post-title-smaller{  font-size: 90% !important;} 
+    .crop  {width: 450px;
+      height: 253px;
+      background-position: center;
+      /* Make the background image cover the area of the <div>, and clip the excess */
+      background-size: cover;}
+    .serial{float:right;opacity:0.5;font-size:0.8em;}
+    .articleindexbreak{display: block; content: ""; margin-top: 12;}
+    </style>
+    <article style="height:525px;overflow:hidden;">
+        {% if post.homedisplay == "iframe" %}
+            {% if post.type == "vimeo" %}
+                {% if post.vimeo-embed %}
+                    <div class="video-container">
+                        {{ post.vimeo-embed }}
+                    </div>
+                {% endif %}
+            {% elsif post.type == "youtube" %}
+                {% if post.yt-video-id %}
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/{{ post.yt-video-id }}?feature=player_detailpage" allowfullscreen></iframe>
+                    </div>
+                    <br class="articleindexbreak">
+                {% endif %}
+            {% elsif post.type == "audio" %}
+                {% if post.audio-embed %}
+                    <div class="video-container">
+                        {{ post.audio-embed }}
+                    </div>
+                {% endif %}
+            {% else %}
+                {% if post.featimg %}
+                    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
+    
+                        <img src="{{post.featimg}}" alt="{{ thumb }}" class="crop">
+                  
+                    </a>
+                {% endif %}
             {% endif %}
-        {% elsif post.type == "youtube" %}
-            {% if post.yt-video-id %}
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/{{ post.yt-video-id }}?feature=player_detailpage" allowfullscreen></iframe>
-                </div>
-                <br class="articleindexbreak">
-            {% endif %}
-        {% elsif post.type == "audio" %}
-            {% if post.audio-embed %}
-                <div class="video-container">
-                    {{ post.audio-embed }}
-                </div>
+        {% else %}
+            <!-- 
+    this is the complete index for articles, as you can see it on the index page.
+    Every Post type get's their own little settings.
+-->
+<style>
+    .post-title-smaller{  font-size: 90% !important;} 
+    .crop  {width: 450px;
+      height: 253px;
+      background-position: center;
+      /* Make the background image cover the area of the <div>, and clip the excess */
+      background-size: cover;}
+    .serial{float:right;opacity:0.5;font-size:0.8em;}
+    .articleindexbreak{display: block; content: ""; margin-top: 12;}
+    </style>
+    <article style="height:525px;overflow:hidden;">
+        {% if post.homedisplay == "iframe" %}
+            {% if post.type == "vimeo" %}
+                {% if post.vimeo-embed %}
+                    <div class="video-container">
+                        {{ post.vimeo-embed }}
+                    </div>
+                {% endif %}
+            {% elsif post.type == "youtube" %}
+                {% if post.yt-video-id %}
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/{{ post.yt-video-id }}?feature=player_detailpage" allowfullscreen></iframe>
+                    </div>
+                    <br class="articleindexbreak">
+                {% endif %}
+            {% elsif post.type == "audio" %}
+                {% if post.audio-embed %}
+                    <div class="video-container">
+                        {{ post.audio-embed }}
+                    </div>
+                {% endif %}
+            {% else %}
+                {% if post.featimg %}
+                    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
+    
+                        <img src="{{post.featimg}}" alt="{{ thumb }}" class="crop">
+                  
+                    </a>
+    
+                    {% else %}
+                
+    <img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/png/1.png">
+                {% endif %}
             {% endif %}
         {% else %}
             {% if post.featimg %}
-                <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
-
-                    <img src="{{post.featimg}}" alt="Featured image cannot be found." class="crop">
-              
-                </a>
-
-                {% else %}
-                <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
-<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/png/1.png" alt="Featured image was not provided, does not exist, or cannot be found.">
-                </a>
+                    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
+                        {% if post.featimg contains '.png'%}
+                        {% assign thumb = post.featimg | replace: '.png', '' %}
+                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.png" alt="{{ thumb }}" class="crop">
+                        {% elsif post.featimg contains '.jpg'%}
+                        {% assign thumb = post.featimg | replace: '.jpg', '' %}
+                            <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.jpg" alt="{{ thumb }}" class="crop">
+                        {% endif %}
+                    </a>
             {% endif %}
-            {% endif %}
-            {% endif %}
-    <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>     <b><span class="serial">{{post.serial}}</span></b>
-
-    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
-        <h1 class="post-title-smaller">"{{ post.title }}"</h1>
-    </a>
-    <p class="post-content">{{ post.description | strip_html | truncate: 125}}{% if post.description == empty %}This is an archive page for a {% if page.serial contains 'D' %}digital{% endif %}{% if page.serial contains 'P' %}physical{% endif %} artifact: "{{page.title | remove: '«' | remove: '»'}}".{% endif %}
-    <p class="actions" style="position: absolute!important;
-    bottom: 0!important;">
-        <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">View artifact</a>
-    </p>
-</article>
+        {% endif %}
+        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>     <b><span class="serial">{{post.serial}}</span></b>
+    
+        <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
+            <h1 class="post-title-smaller">"{{ post.title }}"</h1>
+        </a>
+        <p class="post-content">{{ post.description | strip_html | truncate: 125}}{% if post.description == empty %}This is an archive page for a {% if page.serial contains 'D' %}digital{% endif %}{% if page.serial contains 'P' %}physical{% endif %} artifact: "{{page.title | remove: '«' | remove: '»'}}".{% endif %}
+        <p class="actions" style="position: absolute!important;
+        bottom: 0!important;">
+            <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">View artifact</a>
+        </p>
+    </article>
+    
+        {% endif %}
+        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>     <b><span class="serial">{{post.serial}}</span></b>
+    
+        <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
+            <h1 class="post-title-smaller">"{{ post.title }}"</h1>
+        </a>
+        <p class="post-content">{{ post.description | strip_html | truncate: 125}}{% if post.description == empty %}This is an archive page for a {% if page.serial contains 'D' %}digital{% endif %}{% if page.serial contains 'P' %}physical{% endif %} artifact: "{{page.title | remove: '«' | remove: '»'}}".{% endif %}
+        <p class="actions" style="position: absolute!important;
+        bottom: 0!important;">
+            <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">View artifact</a>
+        </p>
+    </article>
+    
