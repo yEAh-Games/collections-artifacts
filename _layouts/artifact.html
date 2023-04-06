@@ -61,7 +61,7 @@
                         <tr>
                             <td><b>ITEM SERIALS:</b></td>
                             <td>{% for item in page.items %} {% capture markdown %} 
-                                https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains 'P' %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}
+                                https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains 'P' %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1' | remove: '2' | remove: '3' | remove: '4' | remove: '5'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}
                                 {% endcapture %}{% capture yt %} 
                                 https://youtube-nocookie.com/embed/{{page.yt-video-id}}
                                 {% endcapture %}
@@ -157,7 +157,7 @@
                     {% if item contains "yt" %}<iframe width="560px" height="475px" src="https://www.youtube-nocookie.com/embed/{{page.yt-video-id}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}
                     {% if item contains "pdf" %}<iframe style="max-height: 700px; height: 500px" src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf'}}{% if item contains "png" or "pdf" %}.{% endif %}{{item | remove: 'yt' | remove: '-' | remove: '1'}}" title="Embedded PDF viewer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}
                     {% capture markdown %} 
-                    https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains 'P' %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}
+                    https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains 'P' %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1' | remove: '2' | remove: '3' | remove: '4' | remove: '5'}}/{{item | remove: '-'| remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}
                     {% endcapture %}
                     {% capture dir %} 
                     https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains 'P' %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/{{item | remove: '-' | remove: '1' | remove: '2' | remove: '3'}}/{{item | remove: '-'| remove: 'dir' | remove: 'yt' | remove: 'png' | remove: 'pdf' | remove: 'md'}}

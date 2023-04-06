@@ -37,28 +37,16 @@
             {% if post.featimg %}
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
 
-                    <img src="{{post.featimg}}" alt="{{ thumb }}" class="crop">
+                    <img src="{{post.featimg}}" alt="Featured image cannot be found." class="crop">
               
                 </a>
 
                 {% else %}
-            
-<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/png/1.png">
-            {% endif %}
-        {% endif %}
-    {% else %}
-        {% if post.featimg %}
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}" class="noline">
-                    {% if post.featimg contains '.png'%}
-                    {% assign thumb = post.featimg | replace: '.png', '' %}
-                    <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.png" alt="{{ thumb }}" class="crop">
-                    {% elsif post.featimg contains '.jpg'%}
-                    {% assign thumb = post.featimg | replace: '.jpg', '' %}
-                        <img src="{{prepend: site.baseurl | replace: '//', '/'}}{{thumb}}.jpg" alt="{{ thumb }}" class="crop">
-                    {% endif %}
+<img src="https://{{page.location}}.yeahgames.net/c/artifacts/{% if page.serial contains 'D' %}d{% endif %}{% if page.serial contains "P" %}p{% endif %}/{{page.serial | remove: 'D' | remove: 'P'}}/png/1.png" alt="Featured image was not provided, does not exist, or cannot be found.">
                 </a>
-        {% endif %}
-    {% endif %}
+            {% endif %}
+            {% endif %}
     <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>     <b><span class="serial">{{post.serial}}</span></b>
 
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
