@@ -47,6 +47,7 @@
                 </a>
             {% endif %}
             {% endif %}
+            {% endif %}
     <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>     <b><span class="serial">{{post.serial}}</span></b>
 
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
