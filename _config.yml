@@ -41,6 +41,9 @@ kramdown:
 relative_permalinks: false
 exclude: [.git, .gitignore, sass, .sass-cache, package.json, gruntfile.js, node_modules, README.md, jekyllbuild]
 
+plugins:
+  - jekyll-sitemap
+
 # prose.io configurations
 prose:
   media: "img"
@@ -121,6 +124,3 @@ prose:
           label: "YouTube Video ID"
           help: "Set post type to youtube in order for this to work. Do not set featured image, as the youtube video thumbnail will be used"
           type: "text"
-
-plugins:
-  - jekyll-sitemap
