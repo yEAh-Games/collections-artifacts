@@ -1,5 +1,6 @@
 full_rebuild: true
-name: Artifacts • Library / yEAh Network
+name: The yEAh Games Artifact Archive
+networkpath: Artifacts • Library / yEAh Network
 description: A library collection for displaying and archiving yEAh Games-related artifacts or stored items, both digitally and physicially. 
 destination: jekyllbuild
 url: https://artifacts.yeahgames.net
