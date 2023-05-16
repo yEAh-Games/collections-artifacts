@@ -16,7 +16,7 @@
 {% if page.title %}<meta property="og:title" content="{{ page.title }}" />{% endif%}
 {% if page.submitter %}<meta name="author" content="@{{page.submitter}}" />{% endif %}
 <meta property="og:locale" content="en_US" />
-{% if page.description %}<meta property="og:description" content="Introduction:" />{% endif %}
+{% if page.description %}<meta property="og:description" content="{{page.description}}" />{% endif %}
 <link rel="canonical" href="{% if page.link %}{{page.link}}{% else %}{{page.url}}{% endif %}" />
 <meta property="og:url" content="{% if page.link %}{{page.link}}{% else %}{{page.url}}{% endif %}" />
 <meta property="og:site_name" content="{{site.name}}" />
