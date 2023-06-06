@@ -1,0 +1,4 @@
+Sitemap: https://artifacts.yeahgames.net/robots.txt
+
+User-agent: *
+Disallow: /category/*
