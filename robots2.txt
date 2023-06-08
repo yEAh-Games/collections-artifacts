@@ -1,0 +1,14 @@
+Sitemap: https://artifacts.yeahgames.net/sitemap.xml
+
+User-agent: *
+Disallow: /data/*
+Disallow: /page-classic-sidebar-left
+Disallow: /page-classic-sidebar-left/*
+Disallow: /page-classic-sidebar-right
+Disallow: /page-classic-sidebar-right/*
+Disallow: /page-material-sidebar-left
+Disallow: /page-material-sidebar-left/*
+Disallow: /page-material-sidebar-right
+Disallow: /page-material-sidebar-right/*
+Disallow: /preview
+Disallow: /preview/*
