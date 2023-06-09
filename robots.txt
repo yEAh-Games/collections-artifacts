@@ -2,3 +2,14 @@ Sitemap: https://artifacts.yeahgames.net/robots.txt
 
 User-agent: *
 Disallow: /category/*
+Disallow: /data/*
+Disallow: /page-classic-sidebar-left
+Disallow: /page-classic-sidebar-left/*
+Disallow: /page-classic-sidebar-right
+Disallow: /page-classic-sidebar-right/*
+Disallow: /page-material-sidebar-left
+Disallow: /page-material-sidebar-left/*
+Disallow: /page-material-sidebar-right
+Disallow: /page-material-sidebar-right/*
+Disallow: /preview
+Disallow: /preview/*
