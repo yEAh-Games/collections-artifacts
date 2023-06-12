@@ -13,3 +13,6 @@ Disallow: /page-material-sidebar-right
 Disallow: /page-material-sidebar-right/*
 Disallow: /preview
 Disallow: /preview/*
+Disallow: /cdn-cgi/
+Disallow: /cdn-cgi
+Disallow: /cdn-cgi/*
