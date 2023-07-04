@@ -6,6 +6,6 @@
   {% assign author = site.author %}
 {% endif %}
 {% if author %}
-    <span class="author">Archived by {% if page.archivist %}<a href="https://members.yeahgames.net/@{{page.archivist}}"><img   src="https://cdn.yeahgames.net/img/members/profile/default/@{{page.archivist}}.png"   height="16"   width="16"> @{{page.archivist}}</a>{% else %}The Archive Team{% endif %}
+    <span class="author">Archived by {% if page.archivist %}<a title="@{{page.archivist}}" href="https://members.yeahgames.net/@{{page.archivist}}"><img style="border-radius:3.5px" onerror="this.onerror=null; this.src='https://ugc.yeahgames.net/profile/p/default/png/default.png';" src="https://ugc.yeahgames.net/profile/p/default/png/@{{page.archivist}}.png"   height="16"   width="16"> @{{page.archivist}}</a>{% else %}<a href="https://archives.yeahgames.net">The yEAh Archive Team</a>{% endif %}
     </span>
 {% endif %}
