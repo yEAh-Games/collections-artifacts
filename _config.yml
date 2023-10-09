@@ -3,7 +3,7 @@ name: The yEAh Games Artifact Archive
 networkpath: Artifacts • Library / yEAh Network
 description: A library collection for displaying and archiving yEAh Games-related artifacts or stored items, both digitally and physicially. 
 destination: jekyllbuild
-url: https://artifacts.yeahgames.net
+url: https://artifacts.ynwk.org
 baseurl: #place folder name if site is served in subfolder
 permalink: /artifacts/browse/view/:title/
 paginate: 8
